@@ -12,8 +12,8 @@ namespace Commander.Data
             // just hardcoding some fake data right now
             var commands = new List<Command> {
                 new Command{Id=0, HowTo="bofa", Line="coffee", Platform="seven"},
-                new Command{Id=0, HowTo="ligma", Line="tea", Platform="family"},
-                new Command{Id=0, HowTo="sug", Line="water", Platform="lawsons"}
+                new Command{Id=1, HowTo="ligma", Line="tea", Platform="family"},
+                new Command{Id=2, HowTo="sug", Line="water", Platform="lawsons"}
             };
             return commands;
         }

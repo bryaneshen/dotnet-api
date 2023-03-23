@@ -20,12 +20,10 @@ namespace Commader.Controllers
         // constructor for our dependency injection system
         public CommandsController(ICommanderRepo repository)
         {
-            // whatever is injected into the repository variable, we want to assign it to _repository.
+            // Dependency injection; we are assigning the dependency injected value into our private field.
+            // this makes it so that we're able to access the data when we assign the value of the instance of our repository.
             _repository = repository;
         }
-
-        // creating a new instance of our repo so that we can access the data
-        // private readonly MockCommanderRepo _repository = new MockCommanderRepo();
 
         // GET request that responds to api/commands
         [HttpGet]
