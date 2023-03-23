@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Commander.Models;
 
-namespace Commader.Data
+namespace Commander.Data
 {
 // Interface class for our repository folder.
 /* 
