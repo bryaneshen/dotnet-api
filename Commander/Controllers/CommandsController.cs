@@ -34,7 +34,7 @@ namespace Commader.Controllers
 
         // GET request that responds to api/commands/{int id}
         [HttpGet("{id}")]
-        public ActionResult <Command> getCommandById(int id) {
+        public ActionResult <Command> getCommandById(int id) {  
             var commandItem = _repository.getCommandById(id);
             return Ok(commandItem);
         }

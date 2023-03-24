@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/beshen/Documents/Projects/dotnet-api/Commander/Commander.csproj": {}
+    "D:\\Bryan\\Documents\\Projects\\dotnet-api\\Commander\\Commander.csproj": {}
   },
   "projects": {
-    "/Users/beshen/Documents/Projects/dotnet-api/Commander/Commander.csproj": {
+    "D:\\Bryan\\Documents\\Projects\\dotnet-api\\Commander\\Commander.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/beshen/Documents/Projects/dotnet-api/Commander/Commander.csproj",
+        "projectUniqueName": "D:\\Bryan\\Documents\\Projects\\dotnet-api\\Commander\\Commander.csproj",
         "projectName": "Commander",
-        "projectPath": "/Users/beshen/Documents/Projects/dotnet-api/Commander/Commander.csproj",
-        "packagesPath": "/Users/beshen/.nuget/packages/",
-        "outputPath": "/Users/beshen/Documents/Projects/dotnet-api/Commander/obj/",
+        "projectPath": "D:\\Bryan\\Documents\\Projects\\dotnet-api\\Commander\\Commander.csproj",
+        "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
+        "outputPath": "D:\\Bryan\\Documents\\Projects\\dotnet-api\\Commander\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/beshen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -37,6 +37,22 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/7.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
