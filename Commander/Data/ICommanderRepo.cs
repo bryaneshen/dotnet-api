@@ -11,7 +11,7 @@ Just defining all of the methods that will be available
 */
     public interface ICommanderRepo {
         // method to return a list of all our command objects
-        IEnumerable<Command> getAppCommands();
+        IEnumerable<Command> getAllCommands();
 
         // method to return one command
         Command getCommandById(int id);

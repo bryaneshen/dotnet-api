@@ -28,7 +28,7 @@ namespace Commader.Controllers
         // GET request that responds to api/commands
         [HttpGet]
         public ActionResult <IEnumerable<Command>> getAllCommands() {
-            var commandItems = _repository.getAppCommands();
+            var commandItems = _repository.getAllCommands();
             return Ok(commandItems);
         }
 

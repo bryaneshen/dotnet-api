@@ -7,7 +7,7 @@ namespace Commander.Data
     // The class implements the ICommanderRepo interface
     public class MockCommanderRepo : ICommanderRepo
     {
-        public IEnumerable<Command> getAppCommands()
+        public IEnumerable<Command> getAllCommands()
         {
             // just hardcoding some fake data right now
             var commands = new List<Command> {

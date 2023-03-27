@@ -33,7 +33,8 @@ namespace Commander
             services.AddControllers();
 
             // adding our registration for ICommanderRepo and MockCommanderRepo into the services container.
-            services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+            // services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+            services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
