@@ -6,4 +6,4 @@ Utilizing dependency injection throughout the application.
 Within our controller class, we'll be creating a constructor and we will expect an ICommanderRepo instance. When the constructor is then called, the dependency injection system will inject a dependency.
 We registered our service into the service container by using AddScoped, which is done by creating a new object for every client request.
 
-We use migrations (from the EF Core) so that it allows us to update the database schema to keep it in sync with the application's data.
+We use migrations (from the EF Core) so that it allows us to update the database schema to keep it in sync with the application's data. This also allows us to preserve the existing data in the database.
