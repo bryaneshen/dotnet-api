@@ -7,6 +7,11 @@ namespace Commander.Data
     // The class implements the ICommanderRepo interface
     public class MockCommanderRepo : ICommanderRepo
     {
+        public void createCommand(Command cmd)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Command> getAllCommands()
         {
             // just hardcoding some fake data right now
@@ -22,6 +27,11 @@ namespace Commander.Data
         {
             // returning some hardcoded data for now
             return new Command{Id=0, HowTo="bofa", Line="coffee", Platform="seven"};
+        }
+
+        public bool saveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

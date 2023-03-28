@@ -10,10 +10,16 @@ so we can implement that interface as we go along implementing the repo to abide
 Just defining all of the methods that will be available
 */
     public interface ICommanderRepo {
+
+        bool saveChanges();
+
         // method to return a list of all our command objects
         IEnumerable<Command> getAllCommands();
 
         // method to return one command
         Command getCommandById(int id);
+
+        // method to allow us to add data to our DB
+        void createCommand(Command cmd);
     }
 }
