@@ -7,3 +7,6 @@ Within our controller class, we'll be creating a constructor and we will expect 
 We registered our service into the service container by using AddScoped, which is done by creating a new object for every client request.
 
 We use migrations (from the EF Core) so that it allows us to update the database schema to keep it in sync with the application's data. This also allows us to preserve the existing data in the database.
+
+![image](https://user-images.githubusercontent.com/47930778/228169296-c7b490e5-38ca-49b2-8c09-5edc04320813.png)
+An external Data transfer object will be used in order for us to represent the data that our application holds.
