@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using AutoMapper;
 using Commander.Data;
+using Commander.Dto;
 using Commander.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,13 +18,15 @@ namespace Commader.Controllers
     [ApiController]
     public class CommandsController : ControllerBase {
         private readonly ICommanderRepo _repository;
+        private readonly IMapper _mapper;
 
         // constructor for our dependency injection system
-        public CommandsController(ICommanderRepo repository)
+        public CommandsController(ICommanderRepo repository, IMapper mapper)
         {
             // Dependency injection; we are assigning the dependency injected value into our private field.
             // this makes it so that we're able to access the data when we assign the value of the instance of our repository.
             _repository = repository;
+            _mapper = mapper;
         }
 
         // GET request that responds to api/commands
@@ -34,10 +38,11 @@ namespace Commader.Controllers
 
         // GET request that responds to api/commands/{id}
         [HttpGet("{id}")]
-        public ActionResult <Command> getCommandById(int id) {  
+        public ActionResult <CommandReadDto> getCommandById(int id) {  
             var commandItem = _repository.getCommandById(id);
             if (commandItem != null) {
-                return Ok(commandItem);
+                // returning a CommandReadDTO that's mapped from the Command object
+                return Ok(_mapper.Map<CommandReadDto>(commandItem));
             }
             return NotFound();
         }
