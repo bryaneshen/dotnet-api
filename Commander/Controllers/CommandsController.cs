@@ -32,11 +32,14 @@ namespace Commader.Controllers
             return Ok(commandItems);
         }
 
-        // GET request that responds to api/commands/{int id}
+        // GET request that responds to api/commands/{id}
         [HttpGet("{id}")]
         public ActionResult <Command> getCommandById(int id) {  
             var commandItem = _repository.getCommandById(id);
-            return Ok(commandItem);
+            if (commandItem != null) {
+                return Ok(commandItem);
+            }
+            return NotFound();
         }
     }
 }
