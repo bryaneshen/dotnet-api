@@ -1,5 +1,8 @@
-Overview of the application
+Application Architecture:
 ![image](https://user-images.githubusercontent.com/47930778/226523486-5b5460f1-b684-4b8b-b3e9-470bdd57e6b8.png)
+
+These are the API endpoints that are implemented for the REST API.
+![image](https://user-images.githubusercontent.com/47930778/228362596-5376478e-7eba-44fd-91a3-794fd3cd4413.png)
 
 Utilizing dependency injection throughout the application.
 <img width="1462" alt="image" src="https://user-images.githubusercontent.com/47930778/227011535-ba5f8352-989c-40ae-94b1-69469d675ec4.png">
