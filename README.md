@@ -9,4 +9,7 @@ We registered our service into the service container by using AddScoped, which i
 We use migrations (from the EF Core) so that it allows us to update the database schema to keep it in sync with the application's data. This also allows us to preserve the existing data in the database.
 
 ![image](https://user-images.githubusercontent.com/47930778/228169296-c7b490e5-38ca-49b2-8c09-5edc04320813.png)
-An external Data transfer object will be used in order for us to represent the data that our application holds.
+An external Data transfer object will be used in order for us to represent the data that our application holds. 
+
+![image](https://user-images.githubusercontent.com/47930778/228169821-7afc88b8-3590-4d31-9130-b27ca9cccd7f.png)
+The DTO is what will be passed back to the client from a request.
