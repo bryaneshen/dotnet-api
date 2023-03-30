@@ -37,7 +37,7 @@ namespace Commader.Controllers
         }
 
         // GET request that responds to api/commands/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="getCommandById")]
         public ActionResult <CommandReadDto> getCommandById(int id) {  
             var commandItem = _repository.getCommandById(id);
             if (commandItem != null) {
@@ -51,12 +51,25 @@ namespace Commader.Controllers
         [HttpPost]
         public ActionResult <CommandReadDto> createCommand(CommandCreateDto commandCreateDto)
         {
+            /*
+            For REST API principles, if we create a resource, we have to pass back the object we just created AND
+            we have to pass back the route of the newly created object (the URL).
+            */
+
             // converting what we got from the request body into a Command object, so we can store it into our DB.
             var commandModel = _mapper.Map<Command>(commandCreateDto);
             _repository.createCommand(commandModel);
             _repository.saveChanges();
 
-            return Ok(commandModel);
+            // returning a commandReadDto back to the client after we satisfy its request
+            var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+
+            /* 
+            Returns as 201 created response. 
+            The first parameter is the route for the newly created object, the second parameter is the route value, and the third parameter is the new object itself.
+            We use the getCommandById method to generate our new URI.
+            */
+            return CreatedAtRoute(nameof(getCommandById), new {Id = commandReadDto.Id}, commandReadDto);   
         }
     }
 }
