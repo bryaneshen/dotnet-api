@@ -46,5 +46,17 @@ namespace Commader.Controllers
             }
             return NotFound();
         }
+
+        // POST request that responds to api/commands. Returns back a CommandReadDto
+        [HttpPost]
+        public ActionResult <CommandReadDto> createCommand(CommandCreateDto commandCreateDto)
+        {
+            // converting what we got from the request body into a Command object, so we can store it into our DB.
+            var commandModel = _mapper.Map<Command>(commandCreateDto);
+            _repository.createCommand(commandModel);
+            _repository.saveChanges();
+
+            return Ok(commandModel);
+        }
     }
 }
