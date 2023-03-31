@@ -71,5 +71,12 @@ namespace Commader.Controllers
             */
             return CreatedAtRoute(nameof(getCommandById), new {Id = commandReadDto.Id}, commandReadDto);   
         }
+
+        // PUT request that responds to api/commands/{id}
+        [HttpPut("{id}")]
+        public ActionResult updateCommand(int id, CommandUpdateDto commandUpdateDto)
+        {
+            
+        }
     }
 }
