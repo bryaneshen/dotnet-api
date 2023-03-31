@@ -5,6 +5,7 @@ using Commander.Models;
 
 namespace Commander.Data 
 {
+    // Implementation class using DbContext
     public class SqlCommanderRepo : ICommanderRepo
     {
         private readonly CommanderContext _context;
@@ -39,6 +40,11 @@ namespace Commander.Data
         {
             // whenever you make a change to the data via DbContext, the data won't be changed on the DB unless you call this method
             return (_context.SaveChanges() >= 0);
+        }
+
+        public void updateCommand(Command cmd)
+        {
+            // don't need to do anything
         }
     }
 }
