@@ -59,6 +59,8 @@ namespace Commader.Controllers
             // converting what we got from the request body into a Command object, so we can store it into our DB.
             var commandModel = _mapper.Map<Command>(commandCreateDto);
             _repository.createCommand(commandModel);
+
+            // saving the changes into our database
             _repository.saveChanges();
 
             // returning a commandReadDto back to the client after we satisfy its request
@@ -76,7 +78,23 @@ namespace Commader.Controllers
         [HttpPut("{id}")]
         public ActionResult updateCommand(int id, CommandUpdateDto commandUpdateDto)
         {
-            
+            // checking if the resource exists or not
+            var commandModelFromRepo = _repository.getCommandById(id);
+            if (commandModelFromRepo == null) {
+                return NotFound();
+            }
+            // converting what we got from the request body into the existing Command object. We use different syntax from above bc data already exists in the repo for it.
+            // mapping commandUpdateDto to commandModelFromRepo, which is essentially just doing commandModelFromRepo = commandUpdateDto
+            _mapper.Map(commandUpdateDto, commandModelFromRepo);
+
+            // updating the command in our repository
+            _repository.updateCommand(commandModelFromRepo);
+
+            // saving the changes into our database
+            _repository.saveChanges();
+
+            // returning a 204
+            return NoContent();
         }
     }
 }

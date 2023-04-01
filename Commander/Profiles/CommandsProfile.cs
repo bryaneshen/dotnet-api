@@ -12,6 +12,7 @@ namespace Commander.Profiles
             // Creating a map to map between a source object and the destination object
             CreateMap<Command, CommandReadDto>();
             CreateMap<CommandCreateDto, Command>();
+            CreateMap<CommandUpdateDto, Command>();
         }
     }
 }

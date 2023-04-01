@@ -36,6 +36,7 @@ namespace Commander.Data
             return _context.Commands.FirstOrDefault(p => p.Id == id);
         }
 
+        // this method makes the changes onto our database.
         public bool saveChanges()
         {
             // whenever you make a change to the data via DbContext, the data won't be changed on the DB unless you call this method
