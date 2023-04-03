@@ -74,7 +74,10 @@ namespace Commader.Controllers
             return CreatedAtRoute(nameof(getCommandById), new {Id = commandReadDto.Id}, commandReadDto);   
         }
 
-        // PUT request that responds to api/commands/{id}
+        // PUT request that responds to api/commands/{id} 
+        /*
+        With PUT requests, you have to update the entire object.
+        */
         [HttpPut("{id}")]
         public ActionResult updateCommand(int id, CommandUpdateDto commandUpdateDto)
         {
@@ -96,5 +99,14 @@ namespace Commader.Controllers
             // returning a 204
             return NoContent();
         }
+
+        // PATCH request that responds to api/commands/{id}
+        /*
+        With PATCH requests, we can do partial updates. It allows us to pick certain attributes and update certain attributes (if we want).
+        You don't have to update the entire object, you can update specific attributes.
+        The six operations for PATCH:
+            - Add, remove, replace, copy, move, test
+        */
+
     }
 }
