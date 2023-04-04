@@ -24,5 +24,8 @@ Just defining all of the methods that will be available
 
         // method to allow us to update the command
         void updateCommand(Command cmd);
+
+        // method to allow us to delete a command
+        void deleteCommand(Command cmd);
     }
 }

@@ -3,6 +3,7 @@ using AutoMapper;
 using Commander.Data;
 using Commander.Dto;
 using Commander.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 // Convention to name our controller plurallly, and to name our model to be non-plural
@@ -81,13 +82,13 @@ namespace Commader.Controllers
         [HttpPut("{id}")]
         public ActionResult updateCommand(int id, CommandUpdateDto commandUpdateDto)
         {
-            // checking if the resource exists or not
+            // checking if the resource exists to be able to update
             var commandModelFromRepo = _repository.getCommandById(id);
             if (commandModelFromRepo == null) {
                 return NotFound();
             }
             // converting what we got from the request body into the existing Command object. We use different syntax from above bc data already exists in the repo for it.
-            // mapping commandUpdateDto to commandModelFromRepo, which is essentially just doing commandModelFromRepo = commandUpdateDto
+            // mapping commandUpdateDto to a Command object
             _mapper.Map(commandUpdateDto, commandModelFromRepo);
 
             // updating the command in our repository
@@ -107,6 +108,48 @@ namespace Commader.Controllers
         The six operations for PATCH:
             - Add, remove, replace, copy, move, test
         */
+        [HttpPatch("{id}")]
+        public ActionResult partialCommandUpdate(int id, JsonPatchDocument<CommandUpdateDto> patchDoc)
+        {
+            // checking if the resource exists to be able to update
+            var commandModelFromRepo = _repository.getCommandById(id);
+            if (commandModelFromRepo == null) {
+                return NotFound();
+            }
+            // mapping commandModelFromRepo to a CommandUpdateDTO object to generate a new CommandUpdateDTO
+            var commandToPatch = _mapper.Map<CommandUpdateDto>(commandModelFromRepo);
 
+            // applying the patch to update it
+            patchDoc.ApplyTo(commandToPatch, ModelState);
+
+            if (!TryValidateModel(commandToPatch)) {
+                return ValidationProblem(ModelState);
+            }
+
+            // mapping commandUpdateDto to a Command object
+            _mapper.Map(commandToPatch, commandModelFromRepo);
+
+            // updating the command in our repository
+            _repository.updateCommand(commandModelFromRepo);
+
+            _repository.saveChanges();
+
+            return NoContent();
+        }
+
+        // DELETE request that responds to api/commands/{id}
+        [HttpDelete("{id}")]
+        public ActionResult deleteCommand(int id) 
+        {
+            // checking if the resource exists to be able to update
+            var commandModelFromRepo = _repository.getCommandById(id);
+            if (commandModelFromRepo == null) {
+                return NotFound();
+            }
+            _repository.deleteCommand(commandModelFromRepo);
+            _repository.saveChanges();
+
+            return NoContent();
+        }
     }
 }

@@ -81,3 +81,7 @@ D:\Bryan\Documents\Projects\dotnet-api\Commander\obj\Debug\netcoreapp3.1\Command
 D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Bryan\Documents\Projects\dotnet-api\Commander\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

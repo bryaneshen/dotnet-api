@@ -25,6 +25,14 @@ namespace Commander.Data
             _context.Commands.Add(cmd);
         }
 
+        public void deleteCommand(Command cmd)
+        {
+            if (cmd == null) {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+            _context.Commands.Remove(cmd);
+        }
+
         // want to make use of our CommanderContext class to return our items from our DB
         public IEnumerable<Command> getAllCommands()
         {
